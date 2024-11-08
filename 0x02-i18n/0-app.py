@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Hello Holberton Flask Module"""
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     """ Define the route for home"""
-    return render_template("templates/0-index.html")
+    return render_template("0-index.html")
 
 
 if __name__ == "__main__":
