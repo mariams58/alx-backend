@@ -3,10 +3,17 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
-from config import Config
+
+
+class Config:
+    """Config class for task 1"""
+    LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
+
 
 app = Flask(__name__)
-app.config.from_object(Config)
+app.config.from_object('3-app.Config')
 babel = Babel(app)
 
 
