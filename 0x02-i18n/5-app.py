@@ -24,6 +24,7 @@ app = Flask(__name__)
 app.config.from_object('3-app.Config')
 babel = Babel(app)
 
+
 def get_user() -> dict:
     """ Resturns a mock data if user is valid or None """
     idx: str = request.args.get('login_as')
@@ -33,9 +34,10 @@ def get_user() -> dict:
 
 
 @app.before_request
-def before_request() -> str:
+def before_request() -> None:
+    """ Set a global user if valid in mockdb """
     user: dict = get_user()
-    if user != None:
+    if user:
         g.user: g = user
 
 
