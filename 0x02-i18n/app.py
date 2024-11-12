@@ -4,7 +4,7 @@
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from pytz import timezone, exceptions, utc
-frome datetime import datetime
+from datetime import datetime
 import locale
 
 
@@ -45,7 +45,7 @@ def before_request() -> None:
     tze = timezone(get_timezone())
     c_time: datetime = tze.localize(datetime.utcnow())
     txt: str = "%b %d %Y %I:%M:%S %p"
-    g.current_time: datetime = c_time.strftime(fmt)
+    g.current_time: datetime = c_time.strftime(txt)
 
 
 @babel.localeselector
